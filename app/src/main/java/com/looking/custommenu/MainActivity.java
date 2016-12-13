@@ -20,14 +20,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initMenuData() {
-        menuView.addItem(R.mipmap.ic_launcher, View.GONE, "first", "", "", "item1")//
+
+        menuView.addItem(R.mipmap.ic_launcher,View.GONE, "first", "", "", "item1")//
                 .addItem("title", "", "", "item2")//
                 .addItem("", "", "", "item3")//
                 .addDivider(true)//
                 .addItem(View.GONE, "title", "hello", "", "item4")//
                 .addItem("title", Color.GREEN, "heoeo", "item5")//
-                .addItem("textsize", "heoeo", 24f, "item6").build();
+                .build();
 
-
+//        .addItem("textsize", "heoeo", 24f, "item6")
     }
 }

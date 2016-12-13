@@ -16,7 +16,7 @@ public class CustomMenuView extends LinearLayout {
 
 
     public List<ItemDataBean> list = new ArrayList<>();
-    private OnMineMenuListener listener;
+    private OnMenuListener listener;
     private boolean clickEnable = true;
 
     public CustomMenuView(Context context) {
@@ -39,6 +39,7 @@ public class CustomMenuView extends LinearLayout {
     }
 
     public void setData(List<ItemDataBean> datas) {
+
         for (ItemDataBean data : datas) {
             this.addView(createItem(data));
         }
@@ -132,7 +133,7 @@ public class CustomMenuView extends LinearLayout {
         return this;
     }
 
-    public void setOnMineMenuListener(OnMineMenuListener listener) {
+    public void setOnMenuListener(OnMenuListener listener) {
         this.listener = listener;
     }
 
@@ -185,7 +186,7 @@ public class CustomMenuView extends LinearLayout {
         setData(list);
     }
 
-    public interface OnMineMenuListener {
+    public interface OnMenuListener {
         void onClickItem(ItemDataBean data);
 
     }
