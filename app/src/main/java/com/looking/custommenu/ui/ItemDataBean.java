@@ -146,38 +146,10 @@ public class ItemDataBean {
         this.textsize = textsize;
     }
 
-    public ItemDataBean(int iconVisible, String title, String value, String unit, String flag) {
-        this.iconVisible = iconVisible;
-        this.flag = flag;
-        this.unit = unit;
-        this.value = value;
-        this.title = title;
-    }
 
 
-    public ItemDataBean(int iconVisible, int markVisible, String title, String value, String flag) {
-        this.markVisible = markVisible;
-        this.title = title;
-        this.value = value;
-        this.flag = flag;
-        this.iconVisible = iconVisible;
-    }
 
-    public ItemDataBean(int iconId, int iconvisible, String title, int markid, int markvisible, String value, int
-            valueColor, String unit, int unitVisible, int nextId, int nextVisible, String flag) {
-        this.iconId = iconId;
-        this.markVisible = markvisible;
-        this.title = title;
-        this.markId = markid;
-        this.value = value;
-        this.valueColor = valueColor;
-        this.unit = unit;
-        this.unitVisible = unitVisible;
-        this.nextId = nextId;
-        this.nextVisible = nextVisible;
-        this.flag = flag;
-        this.iconVisible = iconvisible;
-    }
+
 
     public ItemDataBean(boolean isDivider) {
         this.isDivider = isDivider;
