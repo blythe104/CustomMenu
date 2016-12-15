@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.looking.custommenu.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,7 +51,8 @@ public class CustomMenuView extends LinearLayout {
         if (data.isDivider) {
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setMinimumHeight(20);
-            linearLayout.setBackgroundResource(android.R.color.transparent);
+            // TODO: 2016/12/15 测试间隔条目
+            linearLayout.setBackgroundResource(R.color.colorPrimary);
             linearLayout.setTag(data);
             return linearLayout;
         } else {
@@ -141,41 +144,100 @@ public class CustomMenuView extends LinearLayout {
         this.clickEnable = clickEnable;
     }
 
+
     /**
-     * 添加菜单栏
+     * 添加简单的菜单栏
      *
-     * @param iconId
-     * @param title
-     * @param value
-     * @param unit
+     * @param title   标题
+     * @param visible 向右箭头的显示情况
      * @param flag
      * @return
      */
-    public CustomMenuView addItem(int iconId, int isvisible, String title, String value, String unit, String flag) {
-        list.add(new ItemDataBean(iconId, isvisible, title, value, unit, flag));
-
+    public CustomMenuView addItem(String title, int visible, String flag) {
+        list.add(new ItemDataBean(title, visible, flag));
         return this;
     }
 
-    public CustomMenuView addItem(int isvisible, String title, String value, String unit, String flag) {
-        list.add(new ItemDataBean(isvisible, title, value, unit, flag));
+    /**
+     * 添加只有标题和描述菜单栏
+     *
+     * @param title 标题
+     * @param value 描述信息
+     * @param flag
+     * @return
+     */
+    public CustomMenuView addItem(String title, String value, String flag) {
+        list.add(new ItemDataBean(title, value, flag));
         return this;
     }
 
-    public CustomMenuView addItem(String title, String value, String unit, String flag) {
-        list.add(new ItemDataBean(title, value, unit, flag));
+    /**
+     * @param title       标题
+     * @param value       描述信息
+     * @param nextVisible 是否显示
+     * @param flag        标记位
+     * @return
+     */
+    public CustomMenuView addItem(String title, String value, int nextVisible, String flag) {
+        list.add(new ItemDataBean(title, value, nextVisible, flag));
         return this;
     }
 
+    /**
+     * @param iconId      ICon
+     * @param title       标题
+     * @param nextVisible 是否显示
+     * @param flag
+     * @return
+     */
+
+    public CustomMenuView addItem(int iconId, String title, int nextVisible, String flag) {
+        list.add(new ItemDataBean(iconId, title, nextVisible, flag));
+        return this;
+    }
+
+    /**
+     * @param iconId      icon
+     * @param title       标题
+     * @param value       内容
+     * @param nextVisible 是否显示
+     * @param flag
+     * @return
+     */
+    public CustomMenuView addItem(int iconId, String title, String value, int nextVisible, String flag) {
+        list.add(new ItemDataBean(iconId, title, value, nextVisible, flag));
+        return this;
+    }
+
+    /**
+     * @param title 标题
+     * @param color 字体色值
+     * @param value 描述
+     * @param flag
+     * @return
+     */
     public CustomMenuView addItem(String title, int color, String value, String flag) {
         list.add(new ItemDataBean(title, color, value, flag));
         return this;
     }
 
-    public CustomMenuView addItem(String title, String value, float textsize, String flag) {
-        list.add(new ItemDataBean(title, value, textsize, flag));
+    /**
+     * 设置图标和mark图标
+     *
+     * @param iconId
+     * @param title
+     * @param markId
+     * @param value
+     * @param nextVisible
+     * @param flag
+     * @return
+     */
+
+    public CustomMenuView addItem(int iconId, String title, int markId, String value, int nextVisible, String flag) {
+        list.add(new ItemDataBean(iconId, title, markId, value, nextVisible, flag));
         return this;
     }
+
 
     public CustomMenuView addDivider(boolean isDivider) {
         list.add(new ItemDataBean(isDivider));

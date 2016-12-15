@@ -3,6 +3,7 @@ package com.looking.custommenu.ui;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -77,14 +78,21 @@ public class MenuMixView extends LinearLayout {
     }
 
     public void setData(ItemDataBean data) {
+        this.data = data;
         this.setValue(data.value);
         this.setIcon(data.iconId);
         this.setTitle(data.title);
         this.setUnit(data.unit);
-        this.setImgVisible(data.isVisible);
-        this.setMarkVisible(data.isVisible);
+        this.setImgVisible(isVisible(data.iconVisible));
+        this.setMarkVisible(isVisible(data.markVisible));
+        this.setNextVisible(isVisible(data.nextVisible));
+        this.setTextVisible(data.unitVisible);
         this.setTextColor(data.textColor);
         this.setTextSize(data.textsize);
+    }
+
+    public int isVisible(int visible) {
+        return visible == -1 ? View.GONE : visible;
     }
 
     public void setValue(String value) {
@@ -138,11 +146,10 @@ public class MenuMixView extends LinearLayout {
     /**
      * 设置菜单里的内容显示隐藏
      *
-     * @param tv      内容
      * @param visible 显示情况
      */
-    public void setTextVisible(TextView tv, int visible) {
-        tv.setVisibility(visible);
+    public void setTextVisible(int visible) {
+        unitTv.setVisibility(visible);
     }
 
     /**
