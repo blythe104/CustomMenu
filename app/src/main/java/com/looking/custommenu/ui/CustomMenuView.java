@@ -5,8 +5,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.looking.custommenu.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +50,7 @@ public class CustomMenuView extends LinearLayout {
             LinearLayout linearLayout = new LinearLayout(getContext());
             linearLayout.setMinimumHeight(20);
             // TODO: 2016/12/15 测试间隔条目
-            linearLayout.setBackgroundResource(R.color.colorPrimary);
+            linearLayout.setBackgroundResource(android.R.color.darker_gray);
             linearLayout.setTag(data);
             return linearLayout;
         } else {

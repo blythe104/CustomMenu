@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 .addItem("third", "desc", View.VISIBLE, "item3")//
                 .addItem(R.mipmap.ic_launcher, "four", View.GONE, "item4")//
                 .addItem(R.mipmap.ic_launcher, "five", View.VISIBLE, "item5")//
+                .addDivider(true)
                 .addItem(R.mipmap.ic_launcher, "six", "six_desc", View.VISIBLE, "item6")//
                 .addItem(R.mipmap.ic_launcher, "six", R.mipmap.ic_launcher, "six_desc", View.VISIBLE, "item7")//
                 .addItem("seven", Color.BLUE, "seven", "item8")//
