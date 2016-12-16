@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 .addItem(R.mipmap.ic_launcher, "five", View.VISIBLE, "item5")//
                 .addItem(R.mipmap.ic_launcher, "six", "six_desc", View.VISIBLE, "item6")//
                 .addItem(R.mipmap.ic_launcher, "six", R.mipmap.ic_launcher, "six_desc", View.VISIBLE, "item7")//
-                .addItem("seven", Color.BLUE, "seven", "item8").build();
+                .addItem("seven", Color.BLUE, "seven", "item8")//
+                .addItem("enight", Color.RED, 19, "enight", "item9")//
+                .build();
 
         menuView.setOnMenuListener(new CustomMenuView.OnMenuListener() {
             @Override
@@ -58,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "this is item4", Toast.LENGTH_SHORT).show();
                         Message msg = handler.obtainMessage();
                         msg.what = 1;
-                        handler.sendMessageDelayed(msg,1000);
+                        handler.sendMessageDelayed(msg, 1000);
+                        break;
+                    case "item9":
+                        Toast.makeText(MainActivity.this, "hello", Toast.LENGTH_SHORT).show();
                         break;
                 }
 

@@ -125,6 +125,24 @@ public class ItemDataBean {
         this.value = value;
     }
 
+    /**
+     * 设置字体色值和大小
+     *
+     * @param title
+     * @param textColor
+     * @param textsize
+     * @param value
+     * @param flag
+     */
+
+    public ItemDataBean(String title, int textColor, int textsize, String value, String flag) {
+        this.flag = flag;
+        this.textColor = textColor;
+        this.textsize = textsize;
+        this.title = title;
+        this.value = value;
+    }
+
     public ItemDataBean(String title, String value, String unit, String flag) {
         this.value = value;
         this.title = title;
@@ -145,10 +163,6 @@ public class ItemDataBean {
         this.value = value;
         this.textsize = textsize;
     }
-
-
-
-
 
 
     public ItemDataBean(boolean isDivider) {

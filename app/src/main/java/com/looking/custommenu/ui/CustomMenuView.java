@@ -222,6 +222,25 @@ public class CustomMenuView extends LinearLayout {
     }
 
     /**
+     *
+     * @param title
+     * @param color
+     * @param value
+     * @param flag
+     * @return
+     */
+    public CustomMenuView addItem(String title, int color,int textsize, String value, String flag) {
+        if(textsize!=0)
+        {
+            list.add(new ItemDataBean(title, color,textsize, value, flag));
+        }
+       else {
+            list.add(new ItemDataBean(title, color, value, flag));
+        }
+        return this;
+    }
+
+    /**
      * 设置图标和mark图标
      *
      * @param iconId
