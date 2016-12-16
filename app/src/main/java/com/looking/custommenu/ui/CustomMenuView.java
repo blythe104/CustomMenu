@@ -5,6 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.looking.custommenu.exception.repeatFlagException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,7 +40,15 @@ public class CustomMenuView extends LinearLayout {
         this.setOrientation(LinearLayout.VERTICAL);
     }
 
-    public void setData(List<ItemDataBean> datas) {
+    public void setData(List<ItemDataBean> datas) throws repeatFlagException {
+        for (int i = 0; i < datas.size() - 1; i++) {
+            String flagTemp = datas.get(i).flag;
+            for (int j = i + 1; j < datas.size(); j++) {
+                if (flagTemp.equals(datas.get(j).flag)) {
+                    throw new repeatFlagException("标记位重复");
+                }
+            }
+        }
 
         for (ItemDataBean data : datas) {
             this.addView(createItem(data));
@@ -220,19 +230,16 @@ public class CustomMenuView extends LinearLayout {
     }
 
     /**
-     *
      * @param title
      * @param color
      * @param value
      * @param flag
      * @return
      */
-    public CustomMenuView addItem(String title, int color,int textsize, String value, String flag) {
-        if(textsize!=0)
-        {
-            list.add(new ItemDataBean(title, color,textsize, value, flag));
-        }
-       else {
+    public CustomMenuView addItem(String title, int color, int textsize, String value, String flag) {
+        if (textsize != 0) {
+            list.add(new ItemDataBean(title, color, textsize, value, flag));
+        } else {
             list.add(new ItemDataBean(title, color, value, flag));
         }
         return this;
@@ -261,7 +268,7 @@ public class CustomMenuView extends LinearLayout {
         return this;
     }
 
-    public void build() {
+    public void build() throws repeatFlagException {
         setData(list);
     }
 

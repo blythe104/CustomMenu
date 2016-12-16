@@ -4,9 +4,7 @@ import android.graphics.Color;
 import android.view.View;
 
 /**
- * User: YangHai (1454025171@qq.com)
- * Date: 2016-12-06
- * Time: 09:27
+ * 条目中的所需字段处理
  */
 public class ItemDataBean {
     public int iconId;
